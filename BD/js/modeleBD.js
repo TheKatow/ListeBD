@@ -42,28 +42,22 @@ $(document).ready(function ($) {
 		var album = albums.get(num.value);
 		console.log(album); // récupère toutes les données de l'album
 
-		var serie = series.get(album.idSerie);
-		console.log(serie); // Numéro de série de l'album en cours d'affichage
-		
-		var auteur = auteurs.get(album.idAuteur);
-		console.log(auteur); // Nom de la série de l'album en cours d'affichage
-
 		if (album === undefined) {
 			txtSerie.value = "";
 			txtNumero.value = "";
 			txtTitre.value = "";
 			txtAuteur.value = "";
 			txtPrix.value = 0;
-			console.log(album);
 
-			afficheAlbums(
-				$("#albumMini"), 
-				$("#album"), 
-				albumDefaultMini, 
-				albumDefault
-				);
+			afficheAlbums($("#albumMini"), $("#album"),	albumDefaultMini, albumDefault);
 
 		} else {
+
+			var serie = series.get(album.idSerie);
+			console.log(serie); // Numéro de série de l'album en cours d'affichage
+		
+			var auteur = auteurs.get(album.idAuteur);
+			console.log(auteur); // Nom de la série de l'album en cours d'affichage
 				
 			txtSerie.value = serie.nom;
 			txtNumero.value = album.numero;
@@ -78,12 +72,7 @@ $(document).ready(function ($) {
 			// les caractères non autorisés dans les noms de fichiers : '!?.":$
 			nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
 
-			afficheAlbums(
-				$("#albumMini"),
-				$("#album"),
-				srcAlbumMini + nomFic + ".jpg",
-				srcAlbum + nomFic + ".jpg"
-			);
+			afficheAlbums($("#albumMini"), $("#album"), srcAlbumMini + nomFic + ".jpg",	srcAlbum + nomFic + ".jpg");
 		}	
 	}
 
@@ -98,7 +87,6 @@ $(document).ready(function ($) {
 	 * @param {string} nomFicBig 
 	 */
 	function afficheAlbums($albumMini, $album, nomFicMini, nomFic) {
-		console.log(album);
 		$album.stop(true, true).clearQueue().fadeOut(100, function () {
 			$album.attr('src', nomFic);
 			$albumMini.stop(true, true).clearQueue().fadeOut(150, function () {
@@ -108,7 +96,8 @@ $(document).ready(function ($) {
 				});
 			}) 
 		});
-		afficheSerie()
+		
+		afficheSerie(album)
 	}	
 	
 
@@ -127,24 +116,22 @@ let listeAlbumimg = new Array();
 function afficheSerie() {
 	// pour tous les albums ayant le même numéro de série, tous les afficher
 	let deathrow = ""
-	console.log("Liste des albums");
-	if (album === undefined) {
-		// const srcImg = "images/"; // emplacement des images de l'appli
-		// const albumDefaultMini = srcImg + "noComicsMini.jpeg";
-		// const albumDefault = srcImg + "noComics.jpeg";
-		document.getElementById('album').innerHTML = '<div><img src="images/noComics.jpeg"/></div>';
+	if (txtSerie.value == "") {
 		document.getElementById('death').innerHTML = '<div><img src="images/noComicsMini.jpeg"/></div>';
 	} else {
 	albums.forEach(album => {
 	    serie = series.get(album.idSerie);
+		// console.log(letitre); // trouver la clef de l'album.
 		if (serie.nom == txtSerie.value) {
 			auteur = auteurs.get(album.idAuteur);
-			// console.log(album.titre+" N°"+album.numero+" Série:"+serie.nom+" Auteur:"+auteur.nom);
-			let miniimg = "albumsMini/" + txtSerie.value + "-" + album.numero + "-" + album.titre + ".jpg" ;
+
+			miniTitre = album.titre;
+			miniTitre = miniTitre.replace(/'|!|\?|\.|"|:|\$/g, "");
+			let miniimg = "albumsMini/" + txtSerie.value + "-" + album.numero + "-" + miniTitre + ".jpg" ;
 			miniimg = miniimg.replace(/'|!|\?|"|:|\$/g, "");
 			console.log(miniimg);
 			
-			deathrow += '<div><img style="" src="'+ miniimg +'"/></div>';
+			deathrow += '<button id="'+ txtId.value +'" oncClick="()"><img src="'+ miniimg +'"/></button>';
 			
 			document.getElementById('death').innerHTML = deathrow;
 
