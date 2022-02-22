@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Les BD</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Liste des BD</h1>
+        <div class="row">
+            <div class="col-sm-6 col-lg-6">
+                <p>
+                    <input type="search" id="search" onchange="search()" placeholder="Rechercher sur le site">
+                    <button id="btnsearch" class="btn" onclick="search()">Rechercher</button>
+                </p>
+                <img src="images/noComics.jpeg" id="album" class="picture img-fluid">
+                <p></p>
+                <p id="messageId">
+                    <label for="id">Id de l'album :</label>
+                    <input type="number" id="id" value="0" min="0" title="Saisissez un numéro" required><br>
+                    <label for="serie">Série :</label>
+                    <input type="text" id="serie" readonly><br>
+                    <label for="numero">Album N° :</label>
+                    <input type="text" id="numero" readonly><br>
+                    <label for="titre">Titre :</label>
+                    <input type="text" id="titre" readonly><br>
+                    <label for="auteur">Auteur :</label>
+                    <input type="text" id="auteur" readonly><br>
+                    <label for="prix">Prix :</label>
+                    <input type="number" id="prix" readonly><br>
+                </p>
+                <p>
+                    <button class="btn" type="button" onclick="Ajouter()">Ajouter au panier</button>
+                </p>
+
+            </div>
+
+            <div class="col-sm-6 col-lg-6">
+                <!-- fr.tutiempo.net - Largeur:347px - Taille:91px -->
+                <div class="meteo" id="TT_JeNEkkk11nrat8sK7krjDDDzzWaKTnnlrd1YkZC5aEj5G5mIG">Météo - Tutiempo.net
+                </div>
+                <br>
+                <section class="container panier">
+                    <legend>Panier</legend>
+                    <!-- <div id="tableau"> -->
+                        <img style="width: 15%;" id="albumMini" hidden>
+                        <div id="liste"></div>   
+                    <!-- </div> -->
+                <!-- </section>
+                <section class="container panier"> -->
+                    <article>
+                        <br><label>Prix du panier total :</label><a id="Total"><a id="prixTotal"></a>
+                    </article>
+                    <div id="btnvalider">
+                    <button class="btn" onclick="valider()">Valider mon panier</button>
+                    </div>
+                </section><br>
+              
+            </div>
+        </div>
+        <div id="death">
+            <img style="width: 10%;" id="albumMini">
+        </div>
+
+    </div>
+    <script type="text/javascript"
+        src="https://fr.tutiempo.net/s-widget/l_JeNEkkk11nrat8sK7krjDDDzzWaKTnnlrd1YkZC5aEj5G5mIG"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="data/albums.js"></script>
+    <script src="data/series.js"></script>
+    <script src="data/auteurs.js"></script>
+    <script src="js/modeleBD.js"></script>
+</body>
+
+</html>

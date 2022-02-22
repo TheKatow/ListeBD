@@ -1,0 +1,140 @@
+body {
+  font: 1em sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: cadetblue;
+}
+
+form {
+  max-width: 300px;
+  margin: 0;
+  padding: 0 5px;
+ 
+}
+
+p>label {
+   width: 20%;
+   text-align: right;
+}
+
+legend {
+  background-color: darkseagreen;
+  padding: 5px;
+  text-align: center; 
+}
+.btn{
+  background-color:chocolate;
+  border: 1px solid black;
+}
+.btn:hover{
+  box-shadow: 2px 2px 5px black;
+}
+.btn:active{
+  background-color: grey;
+  color: whitesmoke;
+  box-shadow: none;
+}
+#btnvalider{
+  display: flex;
+  justify-content: end;
+}
+[id^="retirer"] {
+  margin-left: 5%;
+}
+#liste {
+  display: flex;
+  flex-wrap: wrap;
+}
+article{
+  margin-top: 2%;
+  display: flex;
+  justify-content: end;
+}
+.div1 {
+  height: 20%;
+  margin-right: 0;
+  margin-bottom: 1%;
+}
+.div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin-left: -10%;
+  /* margin-top: 2%; */
+
+}
+.div3 {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 18%;
+  margin-left: 5%;
+  /* margin-top: 2%; */
+}
+#death{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: cadetblue;
+  margin: 1%;
+}
+input[type=text],
+input[type=email],
+input[type=number],
+textarea,
+fieldset {
+  /* requis pour composer de manière appropriée les éléments
+     de formulaire sur les navigateurs fondés sur WebKit */
+  /* -webkit-appearance: none; */
+
+  width: 50%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+input:focus:invalid {
+  outline: none;
+}
+#erreur {
+  color: red;
+}
+h1{
+  padding: 0%;
+  margin-bottom: 2%;
+  text-align: center;
+  font-style: italic;
+  background-color: darkseagreen;
+}
+.container{
+  background-color: lightgray;
+}
+table{
+  border: 1px solid grey;
+}
+th {
+  font-size: 0.8em;
+  column-width: 10vw;
+  text-align: center;
+}
+td {
+  font-size: 0.8em;
+  column-width: 15vw;
+  text-align: center;
+}
+tr:nth-child(2n) {background:lightblue}
+tr:first-child{
+    font-weight: bold;
+}
+.meteo{
+  position: relative;
+  left: 20%;
+}
